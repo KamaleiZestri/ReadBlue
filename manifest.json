@@ -1,0 +1,31 @@
+{
+	"name": "Granblue Reader",
+	"version": "1.0",
+	"description": "Ever play Granblue Fantasy and see a character or background you wanna grab? Now you can!",
+	"manifest_version": 2,
+	"icons":
+	{
+		"16": "icon/silbanee16.png",
+		"48": "icon/silbanee48.png",
+		"128": "icon/silbanee128.png"
+	},
+	"background": 
+	{
+		"scripts": ["src/pageUpdater.js"],
+		"persistent": false
+	},
+	"content_scripts":
+	[{
+		"matches": ["http://game.granbluefantasy.jp/*"],
+		"js": ["src/imageFinder.js"],
+		"all_frames": true
+	}],
+	"page_action":
+	{
+		"default_popup": "src/popup.html"
+	},
+	"permissions":
+	[
+		"tabs"
+	]	
+}
